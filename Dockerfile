@@ -57,6 +57,9 @@ RUN git config --global http.sslVerify false \
   && sed -i -e 's/mvn/mvn -T 4/' /aws-glue-libs/bin/glue-setup.sh \
   && ./aws-glue-libs/bin/gluepyspark
 
+# 各種ライブラリのinstall
+RUN pip install pyspark==2.4.3 boto3 pytest
+
 ENV PATH $PATH:/aws-glue-libs/bin/
 
 WORKDIR /opt/src
